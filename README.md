@@ -9,8 +9,8 @@ docker build -t yapi:1.3.2 .
 ```
 ## push
 ```
-docker tag yapi:1.3.2 xxx.com/yapi:1.3.2  
-docker push xxx.com/yapi:1.3.2
+docker tag yapi:1.3.2 zhfish/yapi:1.3.2  
+docker push zhfish/yapi:1.3.2
 ```
 
 ## compose with mongo
@@ -19,7 +19,7 @@ docker push xxx.com/yapi:1.3.2
 - copy config/config.json to /docker/yapi/conf
 ```
 yapi:
-  image: xxx.com/yapi:1.3.12
+  image: zhfish/yapi:1.3.12
   privileged: false
   restart: always
   links:
