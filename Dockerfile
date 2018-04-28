@@ -14,7 +14,7 @@ RUN \
   wget https://github.com/YMFE/yapi/archive/v${VERSION}.zip && \
   unzip v${VERSION}.zip && \
   rm v${VERSION}.zip && \
-  mv YApi vendors && \
+  mv yapi-${VERSION} vendors && \
   cd vendors && \
   npm install --production && \
   apk del openssl unzip python git make && \
