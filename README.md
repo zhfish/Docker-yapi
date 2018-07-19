@@ -5,12 +5,12 @@ https://www.daocloud.io/mirror
 
 ## build
 ```
-docker build -t yapi:1.3.19 .
+docker build -t yapi:1.3.20 .
 ```
 ## push
 ```
-docker tag yapi:1.3.19 xxx/yapi:1.3.19
-docker push xxx/yapi:1.3.19
+docker tag yapi:1.3.20 xxx/yapi:1.3.20
+docker push xxx/yapi:1.3.20
 ```
 
 ## compose with mongo
@@ -19,7 +19,7 @@ docker push xxx/yapi:1.3.19
 - copy config/config.json to /docker/yapi/conf
 ```
 yapi:
-  image: zhfish/yapi:1.3.19
+  image: zhfish/yapi:1.3.20
   privileged: false
   restart: always
   links:
