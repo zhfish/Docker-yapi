@@ -1,6 +1,6 @@
 FROM node:10-alpine
-LABEL maintainer="wangchen@zhfish.net"
-ENV VERSION 1.6.3
+LABEL maintainer=zhfish<"wangchen@zhfish.net">
+ENV VERSION 1.8.5
 
 COPY ./localtime /etc/localtime
 COPY ./timezone /etc/timezone
