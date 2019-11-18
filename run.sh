@@ -1,7 +1,16 @@
-cp /root/conf/config.json /root/config.json
-cd vendors
-if [ ! -f "/root/conf/init.lock" ];then
-  npm run install-server
-  touch /root/conf/init.lock
+if [ ! -f "/root/init.lock" ];then
+  cat > config.json << EOF
+{ 
+  "port": 3000, 
+  "adminAccount":"$ADMIN_ACCOUNT",
+  "db":{ 
+    "servername":"mongo",
+    "port": 27017, 
+    "DATABASE": "yapi" 
+  } 
+}
+EOF
+  yapi install -v=$VERSION
 fi
+cd vendors
 node server/app.js

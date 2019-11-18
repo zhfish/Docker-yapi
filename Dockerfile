@@ -1,28 +1,23 @@
 FROM node:10-alpine
-LABEL maintainer=zhfish<"wangchen@zhfish.net">
-ENV VERSION 1.8.5
+LABEL MAINTAINER=zhfish<"wangchen@zhfish.net">
 
-COPY ./localtime /etc/localtime
-COPY ./timezone /etc/timezone
+ENV VERSION=1.8.5
+ENV ADMIN_ACCOUNT=admin@yapi.com
 
 WORKDIR /root
 
-RUN \
+COPY ./run.sh /home/run.sh
+
+RUN set -x && \
   apk update && \
   apk upgrade && \
   apk add openssl unzip python git make && \
-  git clone --branch v${VERSION} https://github.com/YMFE/yapi.git && \
-  mv yapi vendors && \
-  cd vendors && \
-  npm install --production && \
-  apk del openssl unzip python git make && \
+  npm i -g yapi-cli && \
   rm -rf /tmp/* /var/cache/apk/*
 
-COPY ./run.sh /root/run.sh
+EXPOSE 3000
 
-EXPOSE 8080
-
-CMD [ "sh", "run.sh" ]
+CMD [ "sh", "/home/run.sh" ]
 
 
 
